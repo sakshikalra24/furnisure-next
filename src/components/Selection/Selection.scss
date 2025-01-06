@@ -1,0 +1,86 @@
+.scroll-container {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+  }
+  
+  .heading {
+    font-size: 16px;
+    color: #6f536f !important;
+    text-align: center;
+    line-height: 26px;
+    padding: 0px 100px;
+    letter-spacing: 1px;
+  }
+  
+  h3 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 50px;
+    color: #6f536f !important;
+    letter-spacing: 2px;
+    font-family: "Brooklyn-Heavy";
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .scroll-image {
+    height: 50vh;
+    opacity: 1; /* Initial opacity or as desired */
+    margin: 40px;
+    width: 100%;
+    cursor: pointer !important;
+    border-radius: 20px;
+  }
+  
+  .selection-heading{
+    margin-top: 50px;
+    border-radius: 20px;
+    padding-top: 50px;
+  }
+  
+  .selection-event{
+    position: absolute;
+    z-index: 999999 !important;
+    cursor: pointer;
+    background-color: rgba(27, 27, 27, 0.286);
+    border-radius: 20px;
+    height: 50vh !important;
+    width: 45%;
+    right: 20px;
+    top: 10px;
+    h1{
+      position: absolute;
+      top: 50%;
+      right: 20%;
+      color: rgb(226, 226, 226) !important;
+    }
+  }
+  .selection-home{
+    position: absolute;
+    z-index: 999999 !important;
+    height: 50vh !important;
+    width: 45%;
+    top: 10px;
+    left: 20px;
+    cursor: pointer;
+    background-color: rgba(27, 27, 27, 0.286);
+    border-radius: 20px;  
+    h1{
+      position: absolute;
+      top: 50%;
+      left: 20%;
+      color: rgb(226, 226, 226) !important;
+    }
+  }

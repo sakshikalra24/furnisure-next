@@ -1,0 +1,84 @@
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  .about-image {
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    height: 100%;
+    .first-image {
+      height: 550px;
+      width: 450px;
+    }
+    .second-image {
+      position: absolute;
+      height: 300px;
+      width: 300px;
+      left: 60%;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  .about-description {
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 100px 50px 50px;
+    h3 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 36px;
+      color: #6f536f !important;
+      letter-spacing: 2px;
+      font-family: "Brooklyn-Bold";
+      margin-bottom: 30px;
+    }
+    .des {
+      font-size: 16px;
+      line-height: 30px;
+      letter-spacing: 1px;
+      color: rgb(42, 42, 42);
+      p {
+        margin-bottom: 16px;
+      }
+      h6 {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 36px;
+        font-family: "Brooklyn-Bold";
+      }
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    display: block;
+    .about-image {
+      width: 100% !important;
+    }
+    .about-description {
+      width: 100% !important;
+    }
+  }
+}
+.about-container {
+  margin-top: 100px;
+  .about-heading {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 50px;
+    color: #6f536f !important;
+    letter-spacing: 2px;
+    font-family: "Brooklyn-Bold";
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}

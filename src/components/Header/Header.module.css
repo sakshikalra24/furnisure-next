@@ -1,0 +1,17 @@
+/* Header.module.css */
+.headerWrapper {
+    position: absolute !important;
+    padding-top: 15px !important;
+    box-shadow: none !important;
+    background-color: #ffffff80 !important;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
