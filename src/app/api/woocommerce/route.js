@@ -2,11 +2,11 @@
 import Category from '../../../utils/category';  // Path to your Category utility
 import Products from '../../../utils/products'; // Path to your Products utility
 
-// Handling the GET request for categories and products
 export async function GET(req) {
-  // Get query params from the request URL
   const url = new URL(req.url);  // Parse the URL
   const type = url.searchParams.get('type');  // Extract the 'type' query parameter
+
+  console.log('Request type:', type);  // Debugging log
 
   if (type === 'categories') {
     try {

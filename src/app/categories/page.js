@@ -11,12 +11,11 @@ const fetchCategories = async () => {
     return response.data; // Return categories data
   } catch (error) {
     console.error("Error fetching categories:", error);
-    return []; // Return an empty array if there is an error
+    return []; 
   }
 };
 
 const Category = async () => {
-  // Fetch categories data directly inside the component (SSR)
   const categories = await fetchCategories();
 
   return (
