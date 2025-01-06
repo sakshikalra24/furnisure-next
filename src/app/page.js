@@ -1,4 +1,7 @@
-import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
+"use client";
+
+
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import React from "react";
 
 const Home = () => {

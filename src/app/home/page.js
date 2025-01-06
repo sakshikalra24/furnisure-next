@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Loader from "@/components/Loader/Loader";
-import Header from "@/components/Header/Header";
-import Banner from "@/components/Banner/Banner";
-import About from "@/components/About/About";
-import Selection from "@/components/Selection/Selection";
+import Loader from "../../components/Loader/Loader";
+import Header from "../../components/Header/Header";
+import Banner from "../../components/Banner/Banner";
+import About from "../../components/About/About";
+import Selection from "../../components/Selection/Selection";
 import "./index.css";
 
 const Home = () => {
