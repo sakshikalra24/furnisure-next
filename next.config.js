@@ -1,3 +1,3 @@
-module.exports = {
-  swcMinify: false,  // Disable SWC minification
-};
+// module.exports = {
+//   swcMinify: false,  // Disable SWC minification
+// };
