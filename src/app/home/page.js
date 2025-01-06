@@ -30,7 +30,7 @@ const Home = () => {
     const loadingTimeout = setTimeout(() => {
       document.querySelector(`.App`).classList.add("translated");
       setLoader(false);
-    }, 6000);
+    }, 4000);
 
     return () => {
       clearTimeout(loadingTimeout);
