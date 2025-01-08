@@ -41,7 +41,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!loader) {
-      if (pathname === "/home") {
+      if (pathname === "/") {
         const homeElement = document.querySelector(`.Home`);
         const rootElement = document.querySelector("#root");
         const viewportHeight = window.innerHeight;
