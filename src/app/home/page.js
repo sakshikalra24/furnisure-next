@@ -1,3 +1,5 @@
+// pages/index.js or src/app/page.js (if you're using App directory in Next.js 13+)
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -7,23 +9,32 @@ import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 import About from "../../components/About/About";
 import Selection from "../../components/Selection/Selection";
-import "./index.css";
+import ProductSlider from "../../components/ProductSlider/ProductSlider" // Import your ProductSlider here
+import "./index.css"; // Your global styles
 
 const Home = () => {
   const [loader, setLoader] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
   const [isClient, setIsClient] = useState(false);
   const [pathname, setPathname] = useState("");
+  const [products, setProducts] = useState();
 
   const router = useRouter();
+
+  const fetchCategories = async () => {
+    const productsRes = await fetch(
+      "http://localhost:3000/api/woocommerce?type=categories"
+    );
+    const productsList = await productsRes.json();
+    setProducts(productsList);
+  }
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       setIsClient(true);
       setPathname(router.pathname);
     }
+    fetchCategories()
   }, [router.pathname]);
 
   useEffect(() => {
@@ -39,14 +50,14 @@ const Home = () => {
 
   useEffect(() => {
     if (!loader) {
-      if (isClient && pathname === "/home") {
+      if (isClient && pathname === "/") {
         // Only run on client-side
-        const homeElement = document.querySelector(`.Home`); // Use scoped class names
-        const rootElement = document.querySelector("#root"); // Target the root container
-        const viewportHeight = window.innerHeight; // Get the viewport height
+        const homeElement = document.querySelector(`.Home`);
+        const rootElement = document.querySelector("#root");
+        const viewportHeight = window.innerHeight;
         if (homeElement && rootElement) {
           const homeHeight = homeElement.offsetHeight;
-          rootElement.style.maxHeight = `${homeHeight}px`; // Set max-height of root container
+          rootElement.style.maxHeight = `${homeHeight}px`;
           rootElement.style.overflow = "hidden"; // Prevent scrolling
         }
       }
@@ -63,12 +74,6 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // setLoading(true);
-    // Category.get().then((res) => {
-    //   setCategories(res?.data?.filter((cate) => cate?.display !== "subcategories"));
-    //   Product.get().then((res) => setProducts(res?.data));
-    //   setLoading(false);
-    // });
   }, []);
 
   return (
@@ -80,8 +85,7 @@ const Home = () => {
           <Banner />
           <Selection />
           <About />
-          {/* <ProductSlider />
-          <Footer /> */}
+          <ProductSlider product={products} name="Featured Products" />
         </div>
       </div>
     </div>

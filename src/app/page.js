@@ -8,7 +8,7 @@ const Home = () => {
  
   return (
     <div>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </div>
   );
 };

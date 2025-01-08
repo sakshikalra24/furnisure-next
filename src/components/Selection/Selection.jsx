@@ -10,7 +10,7 @@ const Selection = () => {
   const containerRef = useRef(null);
   const router = useRouter();
 
-  useEffect(() => {
+  useEffect(() => { 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

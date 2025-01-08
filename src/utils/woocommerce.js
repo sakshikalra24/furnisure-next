@@ -16,7 +16,7 @@ function getOauth() {
   });
 }
 
-export default async function makeRequest(endpoint, method = 'GET', body = {}, page = 1, per_page = 50) {
+export default async function makeRequest(endpoint, method = 'GET', body = {}, page = 1, per_page = 100) {
   const oauth = getOauth();
   let updatedEndpoint = endpoint.replace(/category=([^&?]*)\?/, 'category=$1&');
 

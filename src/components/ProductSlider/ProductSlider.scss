@@ -1,0 +1,137 @@
+.parent-product {
+    padding: 50px;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    .heading {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 36px;
+      color: #795548 !important;
+      letter-spacing: 2px;
+      font-family: "Brooklyn-Heavy";
+    }
+    .scaleCarousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 20px;
+      .main-slider {
+        border: none;
+        padding: none;
+        position: relative;
+        overflow: hidden !important;
+        .slider-des {
+          position: absolute;
+          bottom: 20px;
+          display: none;
+          transition: all 0.5s ease-out;
+        }
+        .backgorund-overloay {
+          position: absolute;
+          background-color: transparent;
+          top: 100%;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%; 
+          transition: all 0.5s ease-out;
+        }
+        img {
+          cursor: pointer;
+          z-index: 10;
+          width: 100%;
+          height: 300px;
+          transition: all 0.5s ease-in-out;
+          border: 2px solid #7955484e;
+          border-radius: 10px;
+          &:hover{
+            transform: scale(1.1);
+            transition: all 0.5s ease-in-out;
+          }
+          
+        }
+        &:hover {
+          .backgorund-overloay {
+            top: 0;
+            background-color: rgba(32, 32, 32, 0.511) !important;
+            transition: all 0.5s ease-out;
+          }
+          .slider-des {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+            color: #795548 !important;
+            font-family: 'Brooklyn';
+            transition: all 0.5s ease-out;
+            font-size: 20px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 20px;
+      height: 80vh;
+      .main-slider {
+        border: none;
+        padding: none;
+        position: relative;
+        overflow: hidden;
+        .slider-des {
+          position: absolute;
+          bottom: 20px;
+          display: none;
+          transition: all 0.5s ease-out;
+        }
+        .backgorund-overloay {
+          position: absolute;
+          background-color: transparent;
+          top: 100%;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%; 
+          transition: all 0.5s ease-out;
+        }
+        img {
+          cursor: pointer;
+          z-index: 10;
+          width: 400px;
+          height: 400px;
+          transition: all 0.5s ease-in-out;
+          &:hover{
+            height: 500px;
+            width: 550px;
+            transition: all 0.5s ease-in-out;
+          }
+          
+        }
+        &:hover {
+          .backgorund-overloay {
+            top: 0;
+            background-color: rgba(32, 32, 32, 0.511) !important;
+            transition: all 0.5s ease-out;
+          }
+          .slider-des {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            color: white !important;
+            font-family: 'Brooklyn';
+            transition: all 0.5s ease-out;
+            font-size: 30px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  
