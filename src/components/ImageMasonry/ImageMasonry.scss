@@ -1,0 +1,39 @@
+.masonary-box {
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    background: white !important;
+    .social-div{
+     position: absolute;
+     top: 0;
+     height: 100%;
+     width: 100%;
+     background: #0000008a;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     color: white;
+     display: none;
+    }
+    &:hover{
+      .social-div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  
+    h1 {
+      font-size: 40px;
+      text-align: center;
+      color: #8c568f !important;
+      font-family: "Brooklyn-Bold";
+      margin-bottom: 40px;
+      transition: all 0.5s ease-out;
+      font-weight: bold;
+    }
+  
+    .socail{
+      background: white !important;
+    }

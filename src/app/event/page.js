@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import EventHeader from "../../components/EventHeader/EventHeader";
 import EventBanner from "../../components/EventBanner/EventBanner";
+import ImageMasonry from "../../components/ImageMasonry/ImageMasonry";
 import "./index.css"; 
 
 const Event = () => {
@@ -37,8 +38,8 @@ const Event = () => {
         <CategoryGrid loading={loading} categories={categories} />
       ) : (
         "Loading"
-      )}
-      <ImageMasonry /> */}
+      )} */}
+      <ImageMasonry />
       <Footer />
     </div>
   );
