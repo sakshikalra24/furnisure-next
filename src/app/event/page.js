@@ -2,10 +2,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Footer from "../../components/Footer/Footer";
+
 import EventHeader from "../../components/EventHeader/EventHeader";
 import EventBanner from "../../components/EventBanner/EventBanner";
+import CategoryGrid from "../../components/CategoryGrid/CategoryGrid";
 import ImageMasonry from "../../components/ImageMasonry/ImageMasonry";
+import Footer from "../../components/Footer/Footer";
+
 import "./index.css"; 
 
 const Event = () => {
@@ -34,11 +37,11 @@ const Event = () => {
     <div className="event-page">
       <EventHeader categories={allCategories} />
       <EventBanner />
-      {/* {categories?.length > 0 ? (
+      {categories?.length > 0 ? (
         <CategoryGrid loading={loading} categories={categories} />
       ) : (
         "Loading"
-      )} */}
+      )}
       <ImageMasonry />
       <Footer />
     </div>

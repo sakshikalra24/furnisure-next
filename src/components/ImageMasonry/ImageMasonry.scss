@@ -14,7 +14,9 @@
      bottom: 0;
      color: white;
      display: none;
+  
     }
+    
     &:hover{
       .social-div{
         display: flex;
@@ -24,16 +26,15 @@
     }
   }
   
-    h1 {
-      font-size: 40px;
-      text-align: center;
-      color: #8c568f !important;
-      font-family: "Brooklyn-Bold";
-      margin-bottom: 40px;
-      transition: all 0.5s ease-out;
-      font-weight: bold;
-    }
-  
     .socail{
       background: white !important;
+      h1 {
+        font-size: 40px;
+        text-align: center;
+        color: #8c568f !important;
+        font-family: "Brooklyn-Bold";
+        margin-bottom: 40px;
+        transition: all 0.5s ease-out;
+        font-weight: bold;
+      }
     }
