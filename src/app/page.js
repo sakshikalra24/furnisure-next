@@ -3,13 +3,13 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import Loader from "../../components/Loader/Loader";
-import Header from "../../components/Header/Header";
-import Banner from "../../components/Banner/Banner";
-import About from "../../components/About/About";
-import Selection from "../../components/Selection/Selection";
-import ProductSlider from "../../components/ProductSlider/ProductSlider" // Import your ProductSlider here
-import Footer from "../../components/Footer/Footer";
+import Loader from "../components/Loader/Loader";
+import Header from "../components/Header/Header";
+import Banner from "../components/Banner/Banner";
+import About from "../components/About/About";
+import Selection from "../components/Selection/Selection";
+import ProductSlider from "../components/ProductSlider/ProductSlider" // Import your ProductSlider here
+import Footer from "../components/Footer/Footer";
 import "./index.css"
 
 const Home = () => {
