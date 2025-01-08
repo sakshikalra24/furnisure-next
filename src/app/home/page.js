@@ -27,7 +27,6 @@ const Home = () => {
     setProducts(productsList);
   }
 
-
   useEffect(() => {
     fetchCategories()
     const loadingTimeout = setTimeout(() => {
