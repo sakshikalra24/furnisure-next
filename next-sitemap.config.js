@@ -4,16 +4,16 @@ import fetch from 'node-fetch';  // If you're using node-fetch to make API reque
 import { promises as fs } from 'fs'; // If you're working with file system
 import path from 'path'; // To manage paths
 
-const siteUrl = 'http://localhost:3000'; // Replace with your production URL
+const siteUrl = 'https://furnisure.me/'; // Replace with your production URL
 
 async function fetchCategories() {
-  const res = await fetch('http://localhost:3000/api/woocommerce?type=categories');
+  const res = await fetch('https://furnisure.me//api/woocommerce?type=categories');
   const categories = await res.json();
   return categories;
 }
 
 async function fetchProducts() {
-  const res = await fetch('http://localhost:3000/api/woocommerce?type=products');
+  const res = await fetch('https://furnisure.me//api/woocommerce?type=products');
   const products = await res.json();
   return products;
 }

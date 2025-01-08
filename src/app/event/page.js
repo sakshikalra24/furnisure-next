@@ -15,7 +15,7 @@ const Event = () => {
   const fetchCategories = async () => {
     setLoading(true)
     const productsRes = await fetch(
-      "http://localhost:3000/api/woocommerce?type=categories"
+      "https://furnisure.me/api/woocommerce?type=categories"
     );
     const productsList = await productsRes.json();
     setCategories(

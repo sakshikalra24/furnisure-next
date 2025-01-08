@@ -5,7 +5,7 @@ import axios from "axios";
 const fetchCategories = async () => {
   try {
     // Use absolute URL for the API route (dynamically set based on environment)
-    const apiUrl = "http://localhost:3000/api/woocommerce?type=categories";
+    const apiUrl = "https://furnisure.me/api/woocommerce?type=categories";
 
     const response = await axios.get(apiUrl);
     return response.data; // Return categories data
