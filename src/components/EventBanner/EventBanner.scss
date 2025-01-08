@@ -1,0 +1,35 @@
+.parallax-container {
+    overflow: hidden;
+    height: 100vh !important;
+    .parallax-background {
+      background-image: url("/assets/main/main1.webp");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      position: relative;
+      height: 100vh !important;
+      transition: all 1s ease-out;
+      .parallax-content {
+        position: absolute;
+        text-align: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #8c568f;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        h1 {
+          font-size: 4em;
+        }
+        p {
+          font-size: 1.5em;
+        }
+      }
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+  

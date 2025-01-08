@@ -10,7 +10,7 @@ import About from "../../components/About/About";
 import Selection from "../../components/Selection/Selection";
 import ProductSlider from "../../components/ProductSlider/ProductSlider" // Import your ProductSlider here
 import Footer from "../../components/Footer/Footer";
-import "./index.css"; 
+import "./index.css"
 
 const Home = () => {
   const [loader, setLoader] = useState(true);
