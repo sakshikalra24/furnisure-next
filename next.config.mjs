@@ -1,9 +1,9 @@
-// next.config.mjs
 export default {
+  reactStrictMode: false,
   images: {
-    domains: ['events.furnisure.me'], // Add the external domain here
+    domains: ['events.furnisure.me'],
   },
   eslint: {
-    ignoreDuringBuilds: true, // Skip ESLint during the build process
+    ignoreDuringBuilds: true,
   },
 };

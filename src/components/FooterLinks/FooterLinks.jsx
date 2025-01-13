@@ -1,3 +1,5 @@
+"use client"
+
 import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import "./FooterLinks.scss";
@@ -12,7 +14,7 @@ export const FooterLinks = () => {
           imgSrc={"assets/loader/loader12.webp"}
           href="/about"
         />
-        <Link
+        <Link 
           heading="Clients"
           subheading="We work with great people"
           imgSrc={"assets/loader/loader14.webp"}

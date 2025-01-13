@@ -26,8 +26,6 @@ const categories = [
 const ProductSlider = ({ product, sell = false, products, name }) => {
   const router = useRouter();
 
-  console.log(product);
-
   const filteredProducts = sell
     ? products
     : product?.filter((prod) =>
@@ -39,13 +37,12 @@ const ProductSlider = ({ product, sell = false, products, name }) => {
       router.push(`/product/${prod?.id}`); // Navigate to product detail page
       window.location.reload(); // This is specific behavior in your original code, use cautiously
     } else {
-      router.push(`/category/${prod?.id}`, {
-        state: { name: prod?.name },
-      }); // Navigate to category page
+      const categoryEncoded = encodeURIComponent(prod?.name)
+        .toLowerCase()
+        .replace(/%20/g, "_");
+      router.push(`/${categoryEncoded}/${prod?.id}`); // Navigate to category page
     }
   };
-
-  console.log(filteredProducts);
 
   return (
     <div className="parent-product">

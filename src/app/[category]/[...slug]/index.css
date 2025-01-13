@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.product-list {
+  width: 80%;
+  background-color: white !important;
+  .card {
+    height: 300px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    padding: 10px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    .card-title {
+      font-size: 14px;
+      font-family: "Brooklyn-Heavy";
+      margin: 10px;
+      text-align: center;
+    }
+    .card-para {
+      margin: 10px;
+      margin-bottom: 20px;
+    }
+    img {
+      margin-top: 20px;
+      height: 250px !important;
+      width: auto;
+      transition: all 0.5s ease-out;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.07);
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
+    padding: 50px;
+  }
+}
+
+.background-category {
+  height: 70vh;
+  background: url("/assets/main/main7.webp") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  .background-category::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(
+      0,
+      0,
+      0,
+      0.5
+    ); /* Change this color and opacity as needed */
+    z-index: 1;
+  }
+  .category-heading {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 2px;
+    font-family: "Brooklyn-Heavy";
+    margin-bottom: 30px;
+    h1 {
+      color: white !important;
+    }
+  }
+}
+
+.product-page {
+  display: flex;
+  padding: 20px;
+}
+
+.subcategory ul {
+  border-left: 1px solid rgba(130, 130, 130, 0.097);
+  border-right: 1px solid rgba(130, 130, 130, 0.097);
+  border-top: 1px solid rgba(130, 130, 130, 0.097);
+  list-style-type: inherit;
+  padding: 20px;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.subcategory li {
+  margin: 20px 10px;
+  padding-bottom: 5px;
+  transition: all 0.2s ease-in;
+  border-bottom: 1px solid #79554857 !important;
+  border-radius: 20px;
+  border-bottom-style: double;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  color: #795548;
+  &:hover {
+    transition: all 0.2s ease-in;
+    transform: translateX(-10px);
+  }
+  &::marker {
+    display: none;
+  }
+}
+.products-heading {
+  margin-top: 20px;
+  font-size: 32px;
+  text-align: center;
+  color: #795548 !important ;
+  font-family: "Brooklyn-Heavy";
+  margin-bottom: 30px;
+  transition: all 0.5s ease-out;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  margin: 0 10px;
+}

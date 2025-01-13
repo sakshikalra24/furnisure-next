@@ -8,7 +8,7 @@ import Header from "../components/Header/Header";
 import Banner from "../components/Banner/Banner";
 import About from "../components/About/About";
 import Selection from "../components/Selection/Selection";
-import ProductSlider from "../components/ProductSlider/ProductSlider" // Import your ProductSlider here
+import ProductSlider from "../components/ProductSlider/ProductSlider" 
 import Footer from "../components/Footer/Footer";
 import "./index.css"
 
@@ -23,6 +23,7 @@ const Home = () => {
     const productsRes = await fetch(
       "https://furnisure.me/api/woocommerce?type=categories"
     );
+    console.log(productsRes)
     const productsList = await productsRes.json();
     setProducts(productsList);
   }

@@ -24,7 +24,7 @@ const Footer = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            "api-key": process.env.NEXT_PUBLIC_API_KEY, // Make sure to use the right environment variable
+            "api-key": process.env.NEXT_PUBLIC_API_KEY,
           },
         }
       );

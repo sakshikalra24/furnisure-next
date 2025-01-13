@@ -1,25 +1,21 @@
-// /utils/category.js
-import makeRequest from './woocommerce';
+import makeRequest from "./woocommerce";
 
-const Category = {
+const Products = {
   get: () => {
-    return makeRequest("/products/categories");
+    return makeRequest("/products");
   },
   getByID: (id) => {
-    return makeRequest(`/products/categories/${id}`);
+    return makeRequest(`/products/${id}`);
   },
-  post: (categoryData) => {
-    return makeRequest("/products/categories", "POST", categoryData);
+  post: (productData) => {
+    return makeRequest("/products", "POST", productData);
   },
-  update: (id, categoryData) => {
-    return makeRequest(`/products/categories/${id}`, "PUT", categoryData);
+  update: (id, productData) => {
+    return makeRequest(`/products/${id}`, "PUT", productData);
   },
   delete: (id) => {
-    return makeRequest(`/products/categories/${id}`, "DELETE");
-  },
-  getSubcategory: (val, page, per_page) => {
-    return makeRequest(`/products?category=${val}`, 'GET', {}, page, per_page);
+    return makeRequest(`/products/${id}`, "DELETE");
   },
 };
 
-export default Category;
+export default Products;

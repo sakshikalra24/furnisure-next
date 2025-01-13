@@ -18,14 +18,14 @@ const Event = () => {
 
   const fetchCategories = async () => {
     setLoading(true)
-    const productsRes = await fetch(
+    const response = await fetch(
       "https://furnisure.me/api/woocommerce?type=categories"
     );
-    const productsList = await productsRes.json();
+    const res = await response.json();
     setCategories(
-        productsList?.filter((cate) => cate?.display !== "subcategories")
+      res?.filter((cate) => cate?.display !== "subcategories")
       );
-    setAllCategories(productsList);
+    setAllCategories(res);
     setLoading(false)
   }
 

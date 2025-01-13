@@ -27,9 +27,9 @@ const About = () => {
       }
 
       // Check if aboutImageRef and secondImageRef are available and calculate scroll
-      const aboutDiv = aboutImageRef.current;
-      const aboutDivTop = aboutDiv.offsetTop;
-      const aboutDivHeight = aboutDiv.offsetHeight;
+      const aboutDiv = aboutImageRef?.current;
+      const aboutDivTop = aboutDiv?.offsetTop;
+      const aboutDivHeight = aboutDiv?.offsetHeight;
       const windowHeight = window.innerHeight;
 
       if (

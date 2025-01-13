@@ -20,7 +20,7 @@ const CategoryGrid = ({
     const formattedName = encodeURIComponent(name)
       .toLowerCase()
       .replace(/%20/g, "_");
-    router.push(`/${formattedName}?id=${id}&name=${name}`); // Navigating to the category page
+    router.push(`/${formattedName}/${id}`); 
   };
 
   return (
