@@ -151,12 +151,11 @@ const ProductList = () => {
           {/* Main Categories Section */}
           <div className="product-page">
             <div className="main-categories">
-              {mainCategories.map((category) => {
+              {mainCategories?.map((category) => {
                 const isExpanded = expandedAccordions.includes(category.id);
                 const hasSubcategories = subcategories.some(
                   (sub) => sub.parent === category.id
                 );
-                const isActive = category.id === subId; // Check if the category is active
 
                 return (
                   <Accordion key={category.id} expanded={isExpanded}>
@@ -180,8 +179,8 @@ const ProductList = () => {
                         }
                         style={{
                           cursor: "pointer",
-                          fontWeight: isActive ? "bold" : "normal", // Highlight active category
-                          color: isActive ? "#795548" : "inherit", // Change color for active category
+                          fontWeight: category.id === subId ? "bold" : "normal", // Highlight active category
+                          color: category.id === subId ? "#795548" : "inherit", // Change color for active category
                         }}
                       >
                         {category.name}
@@ -218,7 +217,10 @@ const ProductList = () => {
                 <Grid container spacing={2}>
                   {productsList?.map((item, index) => (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-                      <Card className="card" onClick={()=>handleProductClick(item?.name,item?.id)}>
+                      <Card
+                        className="card"
+                        onClick={() => handleProductClick(item?.name, item?.id)}
+                      >
                         <img
                           src={item.images?.[1]?.src || item.images?.[0]?.src}
                           alt={item.name}

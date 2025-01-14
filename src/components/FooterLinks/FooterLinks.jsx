@@ -11,25 +11,25 @@ export const FooterLinks = () => {
         <Link
           heading="About"
           subheading="Learn what we do here"
-          imgSrc={"assets/loader/loader12.webp"}
+          imgSrc="/assets/loader/loader12.webp"
           href="/about"
         />
         <Link 
           heading="Clients"
           subheading="We work with great people"
-          imgSrc={"assets/loader/loader14.webp"}
+          imgSrc="/assets/loader/loader14.webp"
           href="#"
         />
         <Link
           heading="Portfolio"
           subheading="Our work speaks for itself"
-          imgSrc={"assets/loader/loader13.webp"}
+          imgSrc="/assets/loader/loader13.webp"
           href="#"
         />
         <Link
           heading="Catalogue"
           subheading="Keep a copy handy for yourselves"
-          imgSrc={"assets/loader/loader15.webp"}
+          imgSrc="/assets/loader/loader15.webp"
           href="/assets/FurniSure Event Rentals Catalogue.pdf"
           download={true}
         >         

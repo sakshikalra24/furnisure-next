@@ -129,7 +129,7 @@ function EventHeader({ categories }) {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <a href="/">
             <Image
-              src={"/assets/logo/FS Logo.png"}
+              src="/assets/logo/FS Logo.png"
               alt="Logo"
               width={250}
               height={80}
@@ -186,6 +186,19 @@ function EventHeader({ categories }) {
                         : "rgba(255, 255, 255, 0.1)",
                   },
                 }}
+                onClick={() => {
+                  if (item === "About Us") {
+                    router.push("/about");
+                  } else if (item === "Contact Us") {
+                    router.push("/contact");
+                  } else {
+                    const formattedName = encodeURIComponent(item)
+                      .toLowerCase()
+                      .replace(/%20/g, "_");
+                    router.push(`/${formattedName}/${popOverIds[item]}`);
+                    setSelectedItem(null);
+                  }
+                }}
               >
                 {item}
               </Button>
@@ -219,8 +232,20 @@ function EventHeader({ categories }) {
                     alignItems: "center",
                     justifyContent: "center",
                   }}
+                  onClick={() => {
+                    const subcategoryName = encodeURIComponent(content?.name)
+                      .toLowerCase()
+                      .replace(/%20/g, "_");
+                    const formattedName = encodeURIComponent(selectedItem)
+                      .toLowerCase()
+                      .replace(/%20/g, "_");
+                    router.push(
+                      `/${formattedName}/${subcategoryName}/${content?.id}`
+                    );
+                    setSelectedItem(null);
+                  }}
                 >
-                  <Image
+                  <img
                     src={content?.image?.src}
                     alt={content?.name}
                     width={60}
