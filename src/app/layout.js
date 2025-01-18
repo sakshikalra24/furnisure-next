@@ -5,22 +5,23 @@ import AnalyticsTracker from "../components/AnalyticsTracker"; // Import the Ana
 export default function RootLayout({ children }) {
   return (
     <>
-      {/* Google Analytics Script */}
-      <Head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HMGVSYBXD"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+      <html lang="en">
+        <head>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-0HMGVSYBXD"
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-0HMGVSYBXD');
             `,
-          }}
-        />
-      </Head>
-
-      <html lang="en">
+            }}
+          />
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           id="root"
