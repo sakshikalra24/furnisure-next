@@ -11,6 +11,7 @@ export default function AnalyticsTracker() {
       // Send page view to Google Analytics whenever the route changes
       window.gtag("config", "G-0HMGVSYBXD", {
         page_path: pathname,
+        page_title:"Fjurnisujrurodjdjk"
       });
 
       // Optionally, send custom data to the dataLayer
@@ -18,6 +19,7 @@ export default function AnalyticsTracker() {
         window.dataLayer.push({
           event: "page_view",
           page_path: pathname,
+          page_title:"Fjurnisujrurodjdjk"
         });
       }
     }
