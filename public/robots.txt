@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://furnisure.me
+Host: https://furnisure.me/
 
 # Sitemaps
 Sitemap: https://furnisure.me/sitemap.xml

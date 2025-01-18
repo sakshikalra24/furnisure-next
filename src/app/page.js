@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -8,9 +7,18 @@ import Header from "../components/Header/Header";
 import Banner from "../components/Banner/Banner";
 import About from "../components/About/About";
 import Selection from "../components/Selection/Selection";
-import ProductSlider from "../components/ProductSlider/ProductSlider" 
+import ProductSlider from "../components/ProductSlider/ProductSlider";
 import Footer from "../components/Footer/Footer";
-import "./index.css"
+import "./index.css";
+
+export const sendPageView = (url, title) => {
+  if (window.gtag) {
+    window.gtag('event', 'page_view', {
+      page_title: title,
+      page_location: url
+    });
+  }
+};
 
 const Home = () => {
   const [loader, setLoader] = useState(true);
@@ -20,16 +28,13 @@ const Home = () => {
   const pathname = usePathname(); // Access current pathname
 
   const fetchCategories = async () => {
-    const productsRes = await fetch(
-      "https://furnisure.me/api/woocommerce?type=categories"
-    );
-    console.log(productsRes)
+    const productsRes = await fetch("https://furnisure.me/api/woocommerce?type=categories");
     const productsList = await productsRes.json();
     setProducts(productsList);
-  }
+  };
 
   useEffect(() => {
-    fetchCategories()
+    fetchCategories();
     const loadingTimeout = setTimeout(() => {
       document.querySelector(`.App`).classList.add("translated");
       setLoader(false);
@@ -61,9 +66,45 @@ const Home = () => {
     };
   }, [loader, pathname, isClient]);
 
+  // Update page title and send page view when pathname changes
   useEffect(() => {
+    const fullUrl = window.location.href;
+    const urlParts = fullUrl.split("/");
+    let pagePath = urlParts[urlParts.length - 1];
+
+    if (!isNaN(pagePath)) {
+      pagePath = urlParts[urlParts.length - 2];
+    }
+
+    pagePath = pagePath.replace(/_/g, " ");
+    pagePath = pagePath.replace(/\b\w/g, (char) => char.toUpperCase());
+
+    const pageTitle = pagePath === '/' ? 'FurniSure Rentals' : pagePath;
+    document.title = pageTitle; // Ensure this is set first
+
+    // Push data to the Google Analytics dataLayer
+    if (window.dataLayer) {
+      console.log('Pushing to dataLayer:', {
+        event: "page_view",
+        page_title: pageTitle,
+        page_path: fullUrl,
+      });
+      window.dataLayer.push({
+        event: "page_view",
+        page_title: pageTitle,
+        page_path: fullUrl,
+      });
+    }
+
+    // Send page view to Google Analytics with updated title
+    sendPageView({
+      url: fullUrl,
+      title: pageTitle,
+    });
+
+    // Scroll to top when page changes
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
 
   return (
     <div className="App">
