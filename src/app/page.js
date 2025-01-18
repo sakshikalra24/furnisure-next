@@ -11,21 +11,21 @@ import ProductSlider from "../components/ProductSlider/ProductSlider";
 import Footer from "../components/Footer/Footer";
 import "./index.css";
 
-export const sendPageView = (url, title) => {
-  if (window.gtag) {
-    window.gtag('event', 'page_view', {
-      page_title: title,
-      page_location: url
-    });
-  }
-};
-
 const Home = () => {
   const [loader, setLoader] = useState(true);
   const [loading, setLoading] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [products, setProducts] = useState();
   const pathname = usePathname(); // Access current pathname
+
+  const sendPageView = (url, title) => {
+    if (window.gtag) {
+      window.gtag('event', 'page_view', {
+        page_title: title,
+        page_location: url
+      });
+    }
+  };
 
   const fetchCategories = async () => {
     const productsRes = await fetch("https://furnisure.me/api/woocommerce?type=categories");
