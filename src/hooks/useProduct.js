@@ -29,7 +29,7 @@ const useProduct = (id, setImage) => {
           return;
         }
 
-        setImage(data?.images?.[1]?.src); // Set the image
+        setImage(data?.images?.[1]?.src ? data?.images?.[1]?.src : data?.images?.[0]?.src  ); // Set the image
         setProduct(data);
 
         const cross = data?.cross_sell_ids || [];
