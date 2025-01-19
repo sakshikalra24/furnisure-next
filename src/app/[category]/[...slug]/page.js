@@ -76,27 +76,25 @@ const ProductList = () => {
     fetchProducts(currentPage);
   }, [slug?.length, currentPage]);
 
-
   useEffect(() => {
     const formatTitle = (str) => {
       if (!str) return "";
       return str
-        .replace(/_/g, " ") 
+        .replace(/_/g, " ")
         .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) 
-        .join(" "); 
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
     };
-  
+
     // Set the title based on the available parameters
-    if (slug?.[0]) {
-      document.title = `${formatTitle(slug?.[0])} Products`;
+    if (slug?.[0] && slug?.[0].length === 2) {
+      document.title = `${formatTitle(slug?.[0])}`;
     } else if (category) {
-      document.title = `${formatTitle(category)} Products`;
+      document.title = `${formatTitle(category)}`;
     } else {
       document.title = "FurniSure Rentals";
     }
   }, [category, slug]);
-  
 
   // Navigate to main category
   const handleMainCategoryClick = (categoryId, categoryName) => {
