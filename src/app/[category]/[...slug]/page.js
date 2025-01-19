@@ -86,8 +86,10 @@ const ProductList = () => {
         .join(" ");
     };
 
+    console.log()
+
     // Set the title based on the available parameters
-    if (slug?.[0] && slug?.[0].length === 2) {
+    if (slug?.[0] && slug?.length === 2) {
       document.title = `${formatTitle(slug?.[0])}`;
     } else if (category) {
       document.title = `${formatTitle(category)}`;
