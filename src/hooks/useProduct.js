@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useProduct = (id) => {
+const useProduct = (id, setImage) => {
   const [product, setProduct] = useState(null);
   const [crossscale, setCrossscale] = useState([]);
   const [upscale, setUpscale] = useState([]);
@@ -29,7 +29,7 @@ const useProduct = (id) => {
           return;
         }
 
-        // setImage(data?.images?.[1]?.src); // Set the image
+        setImage(data?.images?.[1]?.src); // Set the image
         setProduct(data);
 
         const cross = data?.cross_sell_ids || [];

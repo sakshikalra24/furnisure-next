@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import {
   Grid,
   Card,
@@ -126,6 +127,16 @@ const ProductList = () => {
 
   return (
     <>
+      <Head>
+        <title>
+          {subName ? `${subName} Products` : `${category} Products`}
+        </title>
+        <meta
+          name="description"
+          content={`Explore ${subName || category} products in our store!`}
+        />
+      </Head>
+
       <EventHeader categories={categories} />
 
       {/* Background Category Section */}

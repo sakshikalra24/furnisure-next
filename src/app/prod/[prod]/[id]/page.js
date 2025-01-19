@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import Head from "next/head";
+
 import { PropagateLoader } from "react-spinners";
 import { Grid, Typography, Button, Box } from "@mui/material";
 import EventHeader from "../../../../components/EventHeader/EventHeader";
 import Footer from "../../../../components/Footer/Footer";
-import ProductSlider from "../../../../components/ProductSlider/ProductSlider";
 import { useParams } from "next/navigation";
 import useProduct from "../../../../hooks/useProduct";
 import useCategories from "../../../../hooks/useCategories";
@@ -14,7 +15,7 @@ import "./index.css";
 const ProductDetail = () => {
   const { id } = useParams(); // Get the product ID from the URL
   const [image, setImage] = useState();
-  const { product, crossscale, upscale, loading } = useProduct(id);
+  const { product, crossscale, upscale, loading } = useProduct(id, setImage);
   const { categories } = useCategories();
 
   if (loading) {
@@ -29,6 +30,13 @@ const ProductDetail = () => {
 
   return (
     <>
+      <Head>
+        <title>{product?.name} - FurniSure Rentals</title>
+        <meta
+          name="description"
+          content={product?.short_description || "Product details"}
+        />
+      </Head>
       <EventHeader categories={categories} />
       <div className="product-detail">
         <Grid container spacing={2}>
@@ -122,7 +130,6 @@ const ProductDetail = () => {
             />
           )} */}
         </div>
-        
       </div>
       <Footer />
     </>

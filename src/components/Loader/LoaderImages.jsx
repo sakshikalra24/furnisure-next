@@ -38,7 +38,7 @@ const LoaderImages = () => {
         clearInterval(timer);
         return prevImages;
       });
-    }, 300);
+    }, 700);
 
     return () => clearInterval(timer);
   }, []);
