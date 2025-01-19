@@ -12,7 +12,7 @@ import useCategories from "../../../../hooks/useCategories";
 import "./index.css";
 
 const ProductDetail = () => {
-  const { id } = useParams(); // Get the product ID from the URL
+  const { id } = useParams();
   const [image, setImage] = useState();
   const { product, crossscale, upscale, loading } = useProduct(id, setImage);
   const { categories } = useCategories();
@@ -29,7 +29,7 @@ const ProductDetail = () => {
 
     // Set the title based on the available parameters
     if (product?.name) {
-      document.title = `${product?.name} - FurniSure Rentals`;
+      document.title = `${product?.name} - FurniSure`;
 
       // Send pageview event to Google Analytics
       if (window.gtag) {

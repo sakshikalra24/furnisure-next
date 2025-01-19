@@ -71,21 +71,21 @@ const ProductList = () => {
     setCategoryLoading(false);
   };
 
+  const formatTitle = (str) => {
+    if (!str) return "";
+    return str
+      .replace(/_/g, " ")
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
+
   useEffect(() => {
     fetchCategories();
     fetchProducts(currentPage);
   }, [slug?.length, currentPage]);
 
   useEffect(() => {
-    const formatTitle = (str) => {
-      if (!str) return "";
-      return str
-        .replace(/_/g, " ")
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-    };
-
     // Set the title based on the available parameters
     if (slug?.[0] && slug?.length === 2) {
       document.title = `${formatTitle(slug?.[0])} - FurniSure`;
@@ -162,7 +162,7 @@ const ProductList = () => {
       {/* Background Category Section */}
       <div className="background-category mb-10">
         <div className="category-heading">
-          <h1>{category || ""}</h1>
+          <h1>{formatTitle(category)}</h1>
         </div>
       </div>
 
