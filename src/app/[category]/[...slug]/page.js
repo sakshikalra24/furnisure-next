@@ -86,13 +86,11 @@ const ProductList = () => {
         .join(" ");
     };
 
-    console.log()
-
     // Set the title based on the available parameters
     if (slug?.[0] && slug?.length === 2) {
-      document.title = `${formatTitle(slug?.[0])}`;
+      document.title = `${formatTitle(slug?.[0])} - FurniSure`;
     } else if (category) {
-      document.title = `${formatTitle(category)}`;
+      document.title = `${formatTitle(category)} - FurniSure`;
     } else {
       document.title = "FurniSure Rentals";
     }

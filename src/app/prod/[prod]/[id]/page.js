@@ -28,9 +28,11 @@ const ProductDetail = () => {
         .join(" ");
     };
 
+    console.log(product?.name)
+
     // Set the title based on the available parameters
     if (product?.name) {
-      document.title = `${formatTitle(product?.name)}`;
+      document.title = `${product?.name} - FurniSure`;
     } else {
       document.title = "FurniSure Rentals";
     }

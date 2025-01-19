@@ -28,7 +28,7 @@ const Event = () => {
   };
 
   useEffect(() => {
-      document.title = "Event - FurniSure Rentals";
+      document.title = "Events - FurniSure";
   }, []);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Event = () => {
   return (
     <div className="event-page">
       <Head>
-        <title>Events-Furnisure Rentals</title> 
+        <title>Events - Furnisure</title> 
         <meta
           name="description"
           content="Explore the categories and products in our event!"
