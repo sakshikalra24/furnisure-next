@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 
 import { PropagateLoader } from "react-spinners";
@@ -17,6 +17,24 @@ const ProductDetail = () => {
   const [image, setImage] = useState();
   const { product, crossscale, upscale, loading } = useProduct(id, setImage);
   const { categories } = useCategories();
+
+  useEffect(() => {
+    const formatTitle = (str) => {
+      if (!str) return "";
+      return str
+        .replace(/_/g, " ")
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    };
+
+    // Set the title based on the available parameters
+    if (product?.name) {
+      document.title = `${formatTitle(product?.name)}`;
+    } else {
+      document.title = "FurniSure Rentals";
+    }
+  }, [product]);
 
   if (loading) {
     return (

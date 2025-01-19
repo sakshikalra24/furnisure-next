@@ -76,16 +76,27 @@ const ProductList = () => {
     fetchProducts(currentPage);
   }, [slug?.length, currentPage]);
 
+
   useEffect(() => {
-    // Dynamically set page title after component is mounted
-    if (subName) {
-      document.title = `${subName} Products`;
+    const formatTitle = (str) => {
+      if (!str) return "";
+      return str
+        .replace(/_/g, " ") 
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) 
+        .join(" "); 
+    };
+  
+    // Set the title based on the available parameters
+    if (slug?.[0]) {
+      document.title = `${formatTitle(slug?.[0])} Products`;
     } else if (category) {
-      document.title = `${category} Products`;
+      document.title = `${formatTitle(category)} Products`;
     } else {
-      document.title = "FurniSure Rentals"; // Default title
+      document.title = "FurniSure Rentals";
     }
-  }, [category, subName]);
+  }, [category, slug]);
+  
 
   // Navigate to main category
   const handleMainCategoryClick = (categoryId, categoryName) => {

@@ -28,6 +28,10 @@ const Event = () => {
   };
 
   useEffect(() => {
+      document.title = "Event - FurniSure Rentals";
+  }, []);
+
+  useEffect(() => {
     fetchCategories();
   }, []);
 
