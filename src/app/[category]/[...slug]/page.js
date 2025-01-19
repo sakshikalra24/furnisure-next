@@ -76,6 +76,17 @@ const ProductList = () => {
     fetchProducts(currentPage);
   }, [slug?.length, currentPage]);
 
+  useEffect(() => {
+    // Dynamically set page title after component is mounted
+    if (subName) {
+      document.title = `${subName} Products`;
+    } else if (category) {
+      document.title = `${category} Products`;
+    } else {
+      document.title = "FurniSure Rentals"; // Default title
+    }
+  }, [category, subName]);
+
   // Navigate to main category
   const handleMainCategoryClick = (categoryId, categoryName) => {
     setSubId(categoryId);
