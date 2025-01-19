@@ -11,6 +11,8 @@ const Footer = () => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+console.log(process.env.NEXT_PUBLIC_API_KEY)
+
   const sendTransactionalEmail = async (email, name) => {
     try {
       const response = await axios.post(
