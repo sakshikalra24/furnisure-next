@@ -1,8 +1,5 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-
 import { PropagateLoader } from "react-spinners";
 import { Grid, Typography, Button, Box } from "@mui/material";
 import EventHeader from "../../../../components/EventHeader/EventHeader";
@@ -28,11 +25,18 @@ const ProductDetail = () => {
         .join(" ");
     };
 
-    console.log(product?.name)
-
     // Set the title based on the available parameters
     if (product?.name) {
-      document.title = `${product?.name} - FurniSure`;
+      document.title = `${product?.name} - FurniSure Rentals`;
+
+      // Send pageview event to Google Analytics
+      if (window.gtag) {
+        window.gtag("event", "page_view", {
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+          page_title: document.title,
+        });
+      }
     } else {
       document.title = "FurniSure Rentals";
     }
