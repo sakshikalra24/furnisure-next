@@ -33,7 +33,7 @@ export default async function makeRequest(
     updatedEndpoint = updatedEndpoint + `&per_page=${per_page}&page=${page}`;
   }
   if (updatedEndpoint === "/products") {
-    updatedEndpoint = updatedEndpoint + `?per_page=50&page=4`;
+    updatedEndpoint = updatedEndpoint + `?per_page=100&page=3`;
   }
 
   const requestData = {
