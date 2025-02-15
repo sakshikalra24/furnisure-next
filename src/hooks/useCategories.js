@@ -12,7 +12,7 @@ const useCategories = () => {
       setError(null);
 
       try {
-        const baseUrl = prrocess.env.NEXT_PUBLIC_API_URL;
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL;
         const response = await fetch(`${baseUrl}?type=categories`);
         const data = await response.json();
         setCategories(data);

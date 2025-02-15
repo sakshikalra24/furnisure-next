@@ -56,7 +56,7 @@ const ProductList = () => {
   // Fetch Categories
   const fetchCategories = async () => {
     setCategoryLoading(true);
-    const baseUrl = getBaseUrl();
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL;
     const response = await fetch(`${baseUrl}?type=categories`);
     const res = await response.json();
     setCategories(res);
