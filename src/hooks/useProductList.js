@@ -1,4 +1,4 @@
-  "use client"
+"use client";
 
 import { useState, useEffect } from "react";
 
@@ -17,15 +17,15 @@ const useProductList = (subcategoryId, page = 1, productsPerPage = 12) => {
       setError(null);
 
       try {
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL;
         // API request to fetch data
         const response = await fetch(
-          `https://furnisure.me/api/woocommerce?type=categories&id=${subcategoryId}&page=${page}&size=${productsPerPage}`
+          `${baseUrl}?type=categories&id=${subcategoryId}&page=${page}&size=${productsPerPage}`
         );
 
         const data = await response.json();
-        setProducts(data?.data)
-        setTotalProducts(data?.total)
-
+        setProducts(data?.data);
+        setTotalProducts(data?.total);
       } catch (err) {
         setError("Error fetching products");
         console.error(err);

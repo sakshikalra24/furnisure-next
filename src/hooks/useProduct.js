@@ -17,19 +17,22 @@ const useProduct = (id, setImage) => {
       setError(null);
 
       try {
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL;
         // Fetch product details
-        const response = await fetch(
-          `https://furnisure.me/api/woocommerce?type=products&id=${id}`
-        );
+        const response = await fetch(`${baseUrl}?type=products&id=${id}`);
         const data = await response.json();
-        
+
         if (!data) {
           setError("Product data not found");
           setLoading(false);
           return;
         }
 
-        setImage(data?.images?.[1]?.src ? data?.images?.[1]?.src : data?.images?.[0]?.src  ); // Set the image
+        setImage(
+          data?.images?.[1]?.src
+            ? data?.images?.[1]?.src
+            : data?.images?.[0]?.src
+        ); // Set the image
         setProduct(data);
 
         const cross = data?.cross_sell_ids || [];
@@ -38,26 +41,34 @@ const useProduct = (id, setImage) => {
         // Fetch cross-sell products
         const fetchCrossSell = async () => {
           if (cross.length === 0) return; // Avoid making unnecessary API calls
-          
+
           const crossResults = await Promise.all(
             cross.map((prodId) =>
-              fetch(`https://furnisure.me/api/woocommerce?type=products&id=${prodId}`).then((res) => res.json())
+              fetch(`${baseUrl}?type=products&id=${prodId}`).then((res) =>
+                res.json()
+              )
             )
           );
-          const uniqueCrossSellProducts = crossResults.map((res) => res?.data).filter(Boolean);
+          const uniqueCrossSellProducts = crossResults
+            .map((res) => res?.data)
+            .filter(Boolean);
           setCrossscale(uniqueCrossSellProducts);
         };
 
         // Fetch upsell products
         const fetchUpsell = async () => {
           if (up.length === 0) return; // Avoid making unnecessary API calls
-          
+
           const upsellResults = await Promise.all(
             up.map((prodId) =>
-              fetch(`https://furnisure.me/api/woocommerce?type=products&id=${prodId}`).then((res) => res.json())
+              fetch(`${baseUrl}?type=products&id=${prodId}`).then((res) =>
+                res.json()
+              )
             )
           );
-          const uniqueUpsellProducts = upsellResults.map((res) => res?.data).filter(Boolean);
+          const uniqueUpsellProducts = upsellResults
+            .map((res) => res?.data)
+            .filter(Boolean);
           setUpscale(uniqueUpsellProducts);
         };
 

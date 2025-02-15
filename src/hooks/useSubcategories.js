@@ -14,8 +14,9 @@ const useSubCategories = (categoryId) => {
       setError(null);
 
       try {
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL;
         const response = await fetch(
-          `https://furnisure.me/api/woocommerce?type=categories&id=${categoryId}`
+          `${baseUrl}?type=categories&id=${categoryId}`
         );
         const data = await response.json();
         setSubcategories(data);

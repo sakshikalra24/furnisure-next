@@ -20,15 +20,16 @@ const Home = () => {
 
   const sendPageView = (url, title) => {
     if (window.gtag) {
-      window.gtag('event', 'page_view', {
+      window.gtag("event", "page_view", {
         page_title: title,
-        page_location: url
+        page_location: url,
       });
     }
   };
 
   const fetchCategories = async () => {
-    const productsRes = await fetch("https://furnisure.me/api/woocommerce?type=categories");
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+    const productsRes = await fetch(`${baseUrl}?type=categories`);
     const productsList = await productsRes.json();
     setProducts(productsList);
   };

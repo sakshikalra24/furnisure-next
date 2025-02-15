@@ -44,21 +44,20 @@ const ProductList = () => {
   // Fetch Products
   const fetchProducts = async (page) => {
     setCategoryLoading(true);
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL;
     const response = await fetch(
-      `https://furnisure.me/api/woocommerce?type=categories&id=${subId}&page=${page}&size=${productsPerPage}`
+      `${baseUrl}?type=categories&id=${subId}&page=${page}&size=${productsPerPage}`
     );
     const data = await response.json();
     setTotalProducts(data?.total);
     setProductsList(data?.data);
     setCategoryLoading(false);
   };
-
   // Fetch Categories
   const fetchCategories = async () => {
     setCategoryLoading(true);
-    const response = await fetch(
-      "https://furnisure.me/api/woocommerce?type=categories"
-    );
+    const baseUrl = getBaseUrl();
+    const response = await fetch(`${baseUrl}?type=categories`);
     const res = await response.json();
     setCategories(res);
 

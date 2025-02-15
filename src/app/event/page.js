@@ -16,11 +16,11 @@ const Event = () => {
   const [categories, setCategories] = useState([]);
   const [allCategories, setAllCategories] = useState([]);
 
+  // Fetch Categories
   const fetchCategories = async () => {
     setLoading(true);
-    const response = await fetch(
-      "https://furnisure.me/api/woocommerce?type=categories"
-    );
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+    const response = await fetch(`${baseUrl}?type=categories`);
     const res = await response.json();
     setCategories(res?.filter((cate) => cate?.display !== "subcategories"));
     setAllCategories(res);
@@ -28,7 +28,7 @@ const Event = () => {
   };
 
   useEffect(() => {
-      document.title = "Events - FurniSure";
+    document.title = "Events - FurniSure";
   }, []);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Event = () => {
   return (
     <div className="event-page">
       <Head>
-        <title>Events - Furnisure</title> 
+        <title>Events - Furnisure</title>
         <meta
           name="description"
           content="Explore the categories and products in our event!"
