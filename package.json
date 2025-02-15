@@ -5,8 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start",
-    "postbuild": "next-sitemap"
+    "start": "next start"
   },
   "dependencies": {
     "@babel/preset-env": "^7.26.0",
