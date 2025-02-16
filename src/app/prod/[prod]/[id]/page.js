@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
@@ -92,13 +92,13 @@ const ProductDetail = () => {
           <Grid item xs={12} md={6}>
             <Box className="detail-section">
               <h3 className="product-title">{product?.name}</h3>
-              <Typography variant="body2" className="product-description">
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: product?.short_description || "",
-                  }}
-                />
-              </Typography>
+              <div
+                className="product-description"
+                dangerouslySetInnerHTML={{
+                  __html: product?.short_description || "",
+                }}
+              />
+
               <Button className="shop-button">Add to Cart</Button>
             </Box>
           </Grid>
